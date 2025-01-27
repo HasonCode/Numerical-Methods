@@ -1,3 +1,3 @@
-function val = exponential(bet)
-    val = exp(1-bet.^3);
+function val = exponential(x)
+    val = exp(-x.^3-cos(x))-sin(x)./x;
 end

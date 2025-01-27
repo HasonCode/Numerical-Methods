@@ -1,9 +1,9 @@
-function [x,fx,iters,data] = bisection(f, a,b,maxiter,tolerance)
+function [x,fx,iters,data] = falseposition(f, a,b,maxiter,tolerance)
     fa = f(a);
     fb = f(b);
-    data = [];
+    data=[];
     for iters = [1:maxiter]
-        x = (a+b)/2.0;
+        x = (b*fa-a*fb)/(fa-fb);
         fx = f(x);
         toadd = [a, x, b, fa, fx, fb, iters];
         data = [data;toadd];
