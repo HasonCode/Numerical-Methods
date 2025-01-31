@@ -1,20 +1,11 @@
-function [x,fx,iters,data] = bisection(f, a,b,maxiter,tolerance)
-    fa = f(a);
-    fb = f(b);
-    data = [];
-    for iters = [1:maxiter]
-        x = (a+b)/2.0;
-        fx = f(x);
-        toadd = [a, x, b, fa, fx, fb, iters];
-        data = [data;toadd];
-        if (abs(fx)<tolerance)
-            return;
-        elseif (fx*fa > 0)
-            a = x;
-            fa = fx;
+function root = bisection(f, a,b,err)
+    root = (a+b)/2;
+    while ((f((a+b)/2)<err))
+        if (f(root)*f(a) > 0)
+            a = root ;
         else 
-            b = x;
-            fb = fx;
+            b = root;
         endif
-    endfor
+        root = (a+b)/2;
+    end
 end

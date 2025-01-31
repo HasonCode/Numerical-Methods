@@ -1,4 +1,4 @@
-function [x,fx,iters,data] = falseposition(f, a,b,maxiter,tolerance)
+function [x,fx,iters,data] = falseposition(f,a,b,maxiter,tolerance)
     fa = f(a);
     fb = f(b);
     data=[];
